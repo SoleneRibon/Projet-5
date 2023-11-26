@@ -48,6 +48,7 @@
     tagsPosition: "bottom",
     navigation: true
   };
+  //Action quand on clique sur une image de la gallerie
   $.fn.mauGallery.listeners = function(options) {
     $(".gallery-item").on("click", function() {
       if (options.lightBox && $(this).prop("tagName") === "IMG") {
@@ -56,8 +57,9 @@
         return;
       }
     });
-
+// Les filtres
     $(".gallery").on("click", ".nav-link", $.fn.mauGallery.methods.filterByTag);
+// flèches précédents suivants dans la modale    
     $(".gallery").on("click", ".mg-prev", () =>
       $.fn.mauGallery.methods.prevImage(options.lightboxId)
     );
@@ -240,7 +242,7 @@
         return;
       }
       $(".active-tag").removeClass("active active-tag");
-      $(this).addClass("active-tag");
+      $(this).addClass("active active-tag");
 
       var tag = $(this).data("images-toggle");
 
